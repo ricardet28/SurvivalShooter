@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animating(float x, float z)
     {
-        //this is a test for github. XD
         bool walking = x != 0f || z != 0f;
         anim.SetBool("IsWalking", walking);
     }
