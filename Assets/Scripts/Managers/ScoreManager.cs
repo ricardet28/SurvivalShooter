@@ -4,21 +4,21 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score;
+    public static int score;//static means that this variable belongs to the class itself and not to their instances.
 
 
-    Text text;
+    Text _text;
 
 
     void Awake ()
     {
-        text = GetComponent <Text> ();
+        _text = GetComponent <Text> ();
         score = 0;
     }
 
 
     void Update ()
     {
-        text.text = "Score: " + score;
+        _text.text = "Score: " + score;
     }
 }
