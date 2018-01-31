@@ -217,6 +217,11 @@ Prefab:
       propertyPath: startingHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114247077070380148, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f7b421eb3cee794598813e0ef5ad6a3, type: 2}
   m_IsPrefabParent: 0
@@ -1334,7 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1466072638}
   enemy: {fileID: 1656914406012656, guid: 6d4b9f1b98c610f4fb280b5ea1e6adbf, type: 2}
-  spawnTime: 2
+  spawnTime: 6
   spawnPoints:
   - {fileID: 303977357}
 --- !u!114 &1808813488
@@ -1350,7 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1466072638}
   enemy: {fileID: 1497611660760508, guid: e512e13aa611c1849ad62b65d97e3b6f, type: 2}
-  spawnTime: 1
+  spawnTime: 12
   spawnPoints:
   - {fileID: 1316268590}
 --- !u!1001 &1848037053
@@ -1405,7 +1410,7 @@ Prefab:
     - target: {fileID: 114257834807773884, guid: 46a2e15921c21434daf03638caeca593,
         type: 2}
       propertyPath: spawnTime
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46a2e15921c21434daf03638caeca593, type: 2}
