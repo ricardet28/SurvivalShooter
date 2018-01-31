@@ -4,7 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
-    public float sinkSpeed = 2.5f;
+    public float sinkSpeed = 2.5f;//when dies
     public int scoreValue = 10;
     public AudioClip deathClip;
 
@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        capsuleCollider.isTrigger = true;
+        capsuleCollider.isTrigger = true;//when dies the enemy can walk throught them.
 
         anim.SetTrigger ("Dead");
 
