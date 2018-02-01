@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4041025716810828}
   - component: {fileID: 114257834807773884}
+  - component: {fileID: 114480073357113676}
+  - component: {fileID: 114668805589512098}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -54,5 +56,37 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   enemy: {fileID: 1295971420569310, guid: bcbce8ba30b0b28419bba11cea591532, type: 2}
   spawnTime: 3
+  spawnPoints:
+  - {fileID: 0}
+--- !u!114 &114480073357113676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463610704273950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  enemy: {fileID: 1656914406012656, guid: 6d4b9f1b98c610f4fb280b5ea1e6adbf, type: 2}
+  spawnTime: 12
+  spawnPoints:
+  - {fileID: 0}
+--- !u!114 &114668805589512098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463610704273950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  enemy: {fileID: 1497611660760508, guid: e512e13aa611c1849ad62b65d97e3b6f, type: 2}
+  spawnTime: 6
   spawnPoints:
   - {fileID: 0}
