@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4041025716810828}
-  - component: {fileID: 114257834807773884}
   - component: {fileID: 114480073357113676}
   - component: {fileID: 114668805589512098}
+  - component: {fileID: 114175599675885030}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114257834807773884
+--- !u!114 &114175599675885030
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

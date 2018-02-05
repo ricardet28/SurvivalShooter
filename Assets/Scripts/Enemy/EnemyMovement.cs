@@ -7,6 +7,11 @@ public class EnemyMovement : MonoBehaviour
     PlayerHealth playerHealth;
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
+    SafeZone safeZone;
+    GameObject spawnAreaZoombunny;
+    GameObject spawnAreaZoombear;
+    GameObject spawnAreaHellephant;
+
 
 
     void Awake ()
@@ -15,14 +20,45 @@ public class EnemyMovement : MonoBehaviour
         playerHealth = player.GetComponent <PlayerHealth> ();
         enemyHealth = GetComponent <EnemyHealth> ();
         nav = GetComponent <UnityEngine.AI.NavMeshAgent> ();
+        safeZone = GameObject.FindGameObjectWithTag("SafeZone").GetComponent<SafeZone>();
+        spawnAreaZoombunny = GameObject.FindGameObjectWithTag("SpawnZoombunny");
+        spawnAreaZoombear = GameObject.FindGameObjectWithTag("SpawnZoombear");
+        spawnAreaHellephant = GameObject.FindGameObjectWithTag("SpawnHellephant");
+
     }
 
-
+    private void Start()
+    {
+        
+    }
     void Update ()
     {
+
+        
+
         if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         {
-            nav.SetDestination (player.position);
+            nav.enabled = true;
+            if (safeZone.playerInside)
+            {
+                if (this.gameObject.CompareTag("Zoombunny"))
+                {
+                    nav.SetDestination(spawnAreaZoombunny.transform.position);
+                }
+                else if (this.gameObject.CompareTag("Zoombear"))
+                {
+                    nav.SetDestination(spawnAreaZoombear.transform.position);
+                }
+                else if (this.gameObject.CompareTag("Hellephant"))
+                {
+                    nav.SetDestination(spawnAreaHellephant.transform.position);
+                }
+
+
+            }
+                
+            else
+                nav.SetDestination (player.position);
         }
         else
         {

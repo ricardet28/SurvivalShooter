@@ -27,10 +27,10 @@ GameObject:
   - component: {fileID: 195900680030386594}
   - component: {fileID: 114040411270452420}
   - component: {fileID: 114804704308478390}
-  - component: {fileID: 114489416915768850}
+  - component: {fileID: 114752392728271194}
   m_Layer: 9
-  m_Name: Zombunny
-  m_TagString: Zoombunny
+  m_Name: ZombunnyInfluence
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295971420569310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6080914, y: 0, z: -7.0155287}
+  m_LocalPosition: {x: 8.09, y: 0, z: -7.0155287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4595742446844570}
@@ -213,7 +213,7 @@ Animator:
   m_GameObject: {fileID: 1295971420569310}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: be66986effd141b4992d2d78be127139, type: 3}
-  m_Controller: {fileID: 9100000, guid: 1abb0aeabe8bbdc4283ead719a133fe9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 126f2ffe8fac2be4ea75db15989b98c3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -236,7 +236,7 @@ MonoBehaviour:
   attackDamage: 10
   follow: 0
   attack: 0
---- !u!114 &114489416915768850
+--- !u!114 &114752392728271194
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -244,9 +244,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295971420569310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f6618a0da65fa45b24d5105d5d8422, type: 3}
+  m_Script: {fileID: 11500000, guid: 19f50729a6ce13344b480929ad16f05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPlayer: 0
+  followingPlayer: 0
 --- !u!114 &114804704308478390
 MonoBehaviour:
   m_ObjectHideFlags: 1

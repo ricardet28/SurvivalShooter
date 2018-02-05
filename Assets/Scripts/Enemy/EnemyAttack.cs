@@ -5,7 +5,8 @@ public class EnemyAttack : MonoBehaviour
 {
     public float timeBetweenAttacks = 0.5f;
     public int attackDamage = 10;
-
+    public bool follow;
+    public bool attack;
 
     Animator anim;
     GameObject player;
@@ -21,6 +22,7 @@ public class EnemyAttack : MonoBehaviour
         playerHealth = player.GetComponent <PlayerHealth> ();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent <Animator> ();
+        
     }
 
 
@@ -28,6 +30,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if(other.gameObject == player)
         {
+            
             playerInRange = true;
         }
     }
