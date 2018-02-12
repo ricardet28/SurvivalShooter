@@ -17,7 +17,6 @@ public class PlayerShooting : MonoBehaviour
     int shootableMask;
     ParticleSystem gunParticles;
     LineRenderer gunLine;
-    LineRenderer gunLineBoosted;
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
@@ -32,11 +31,6 @@ public class PlayerShooting : MonoBehaviour
         shootableMask = LayerMask.GetMask ("Shootable");
         gunParticles = GetComponent<ParticleSystem> ();
         
-        //gunLineBoosted = gameObject.AddComponent<LineRenderer>();
-
-        gunLineBoosted = GetComponent<LineRenderer>();
-        gunLineBoosted.material = gunLineBoostedMaterial;
-
         gunLine = GetComponent<LineRenderer>();
         gunLine.material = gunLineMaterial;
 
@@ -70,11 +64,14 @@ public class PlayerShooting : MonoBehaviour
         if (boostedShoot)
         {
             Debug.Log("boostedShot enabled");
+            gunLine.material = gunLineBoostedMaterial;
+            gunLight.color = Color.red;
             currentTimeBoostedShoot += Time.deltaTime;
             if (currentTimeBoostedShoot >= timeBoostedShoot)
             {
                 boostedShoot = false;
                 Debug.Log("boostedShot disabled");
+                gunLine.material = gunLineMaterial;
                 currentTimeBoostedShoot = 0f;
             }
         }
@@ -82,7 +79,6 @@ public class PlayerShooting : MonoBehaviour
     public void DisableEffects ()
     {
         gunLine.enabled = false;
-        gunLineBoosted.enabled = false;
         gunLight.enabled = false;
     }
 
@@ -93,13 +89,13 @@ public class PlayerShooting : MonoBehaviour
         gunAudio.Play();
 
         gunLight.enabled = true;
-
+        //gunLight.color = Color.red;
         gunParticles.Stop();//if they are already playing.
         gunParticles.Play();
 
-        gunLineBoosted.enabled = true;
+        gunLine.enabled = true;
         
-        gunLineBoosted.SetPosition(0, transform.position);//set the vertex 0 on the barrel.
+        gunLine.SetPosition(0, transform.position);//set the vertex 0 on the barrel.
 
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;//direction of the gun barrel
@@ -113,11 +109,11 @@ public class PlayerShooting : MonoBehaviour
                 enemyHealth.TakeDamage((int)boostedDamagePerShot, shootHit.point);//on the variable shootHit we store the point where we collide the shootRay on the object with shootableMask.
                
             }
-            gunLineBoosted.SetPosition(1, shootHit.point);//a shootable object can be a wall, an enemy, etc. SO we need this out of the above if condition.
+            gunLine.SetPosition(1, shootHit.point);//a shootable object can be a wall, an enemy, etc. SO we need this out of the above if condition.
         }
         else//if we do not collide we set the end of the line in the maximum range.
         {
-            gunLineBoosted.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         }
     }
     void Shoot ()
@@ -127,7 +123,7 @@ public class PlayerShooting : MonoBehaviour
         gunAudio.Play ();
 
         gunLight.enabled = true;
-
+        //gunLight.color = Color.yellow;
         gunParticles.Stop ();//if they are already playing.
         gunParticles.Play ();
         
