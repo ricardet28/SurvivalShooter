@@ -18,8 +18,8 @@ public class CounterCurrentEnemies : MonoBehaviour {
 
 
         zoombunnyCounterText.text = "Zoombunny: 0";
-        zoombunnyCounterText.text = "Zoombear: 0";
-        zoombunnyCounterText.text = "Hellephant: 0";
+        zoombearCounterText.text = "Zoombear: 0";
+        hellephantCounterText.text = "Hellephant: 0";
 
     }
     // Use this for initialization
