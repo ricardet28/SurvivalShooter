@@ -12,6 +12,8 @@ TagManager:
   - SpawnHellephant
   - SafeZone
   - EnemyManager
+  - SpherePowerup
+  - PowerupsManager
   layers:
   - Default
   - TransparentFX

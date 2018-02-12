@@ -390,6 +390,41 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 1632348661}
+    - target: {fileID: 114753491050496268, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: timeBoostedShoot
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 120771008036831774, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120771008036831774, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120771008036831774, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120771008036831774, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114753491050496268, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: gunLineBoostedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7659414ed892d8947b02e5c6bfd61b76, type: 2}
+    - target: {fileID: 114753491050496268, guid: 5f7b421eb3cee794598813e0ef5ad6a3,
+        type: 2}
+      propertyPath: gunLineMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 007cd3dce0e6539409edcc484011c877, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f7b421eb3cee794598813e0ef5ad6a3, type: 2}
   m_IsPrefabParent: 0
@@ -1077,6 +1112,50 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1286507126}
+--- !u!1 &1302137286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1302137288}
+  - component: {fileID: 1302137287}
+  m_Layer: 0
+  m_Name: PowerupsManager
+  m_TagString: PowerupsManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1302137287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302137286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba452cd178816004ca474374dc161749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spherePU: {fileID: 1442174423494952, guid: 69ca62157fcb9f344814b7183aea7887, type: 2}
+  timeToSpawn: 4
+  spawned: 0
+  currentSpheresSpawned: 0
+--- !u!4 &1302137288
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302137286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 414.48715, z: -0.70848715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316268589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,7 +1645,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1647769905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -470, y: -224.5, z: 0}
+  m_LocalPosition: {x: -443, y: -224.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1751281286}
@@ -1778,7 +1857,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1808568831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 470, y: 224.5, z: 0}
+  m_LocalPosition: {x: 443, y: 224.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1647769906}
