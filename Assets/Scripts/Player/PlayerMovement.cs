@@ -3,6 +3,9 @@
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f;
+
+    //public 
+
     private Vector3 movement;
     Animator anim;
     Rigidbody playerRigidbody;

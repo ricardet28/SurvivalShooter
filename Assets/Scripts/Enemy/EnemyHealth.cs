@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     public AudioClip deathClip;
 
+    private CounterCurrentEnemies counterCurrentEnemies;
 
     Animator anim;
     AudioSource enemyAudio;
@@ -19,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake ()
     {
+        counterCurrentEnemies = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<CounterCurrentEnemies>();
         anim = GetComponent <Animator> ();
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
@@ -58,6 +60,22 @@ public class EnemyHealth : MonoBehaviour
 
     void Death ()
     {
+        if (this.gameObject.CompareTag("Zoombunny"))
+        {
+            counterCurrentEnemies.zoombunnyCounter--;
+        }
+
+        else if (this.gameObject.CompareTag("Zoombear"))
+        {
+            counterCurrentEnemies.zoombearCounter--;
+        }
+        else if (this.gameObject.CompareTag("Hellephant"))
+        {
+            counterCurrentEnemies.hellephantCounter--;
+        }
+
+        counterCurrentEnemies.UpdateCounterTexts();
+
         isDead = true;
 
         capsuleCollider.isTrigger = true;//when dies the enemy can walk throught them.
