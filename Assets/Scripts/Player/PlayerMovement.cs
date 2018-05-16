@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody playerRigidbody;
     int floorMask;
     float camRayLength = 100f;
+    public bool playerInSafeArea;
+
 
     private void Awake()
     {
@@ -45,6 +47,21 @@ public class PlayerMovement : MonoBehaviour
 
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
             playerRigidbody.MoveRotation(newRotation);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("SafeArea")){
+            playerInSafeArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("SafeArea"))
+        {
+            playerInSafeArea = false;
         }
     }
 
