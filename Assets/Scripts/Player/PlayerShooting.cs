@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerShooting : MonoBehaviour
 {
     public int damagePerShot = 20;
+    private int originalDamagePerShot;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
+    public float timePowerShotAvalaible = 5f;
 
 
     float timer;
@@ -16,6 +19,7 @@ public class PlayerShooting : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+    bool powerShotAvalaible = true;
 
 
     void Awake ()
@@ -25,6 +29,7 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent <LineRenderer> ();
         gunAudio = GetComponent<AudioSource> ();
         gunLight = GetComponent<Light> ();
+        originalDamagePerShot = damagePerShot;
     }
 
 
@@ -81,5 +86,31 @@ public class PlayerShooting : MonoBehaviour
         {
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
         }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Sphere"))
+        {
+            SpawnBallManager.instance.numBallsSpawned--;
+            Destroy(collision.gameObject);
+            if (powerShotAvalaible)
+                StartCoroutine(PowerShotStillAvalaible());
+        }
+    }
+
+    private IEnumerator PowerShotStillAvalaible()
+    {
+        damagePerShot = 1000;
+        float currentTime = 0f;
+        while (currentTime <= timePowerShotAvalaible)
+        {
+            powerShotAvalaible = false;
+            Debug.Log("ULTRA SHOT ENABLED!!!");
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        damagePerShot = originalDamagePerShot;
+        powerShotAvalaible = true;
     }
 }

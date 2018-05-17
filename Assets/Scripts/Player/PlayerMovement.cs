@@ -53,4 +53,6 @@ public class PlayerMovement : MonoBehaviour
         bool walking = x != 0f || z != 0f;
         anim.SetBool("IsWalking", walking);
     }
+
+    
 }
