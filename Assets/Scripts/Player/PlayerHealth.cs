@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+
     public int startingHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake ()
     {
+        Debug.Log("Level Started!");
         anim = GetComponent <Animator> ();
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
