@@ -15,11 +15,13 @@ public class PlayerShooting : MonoBehaviour
     LineRenderer gunLine;
     AudioSource gunAudio;
     Light gunLight;
+    EnemyMovement _EnemyMovement;
     float effectsDisplayTime = 0.2f;
-
+    float lerpValue = 0f;
 
     void Awake ()
     {
+        _EnemyMovement = GetComponentInParent<EnemyMovement>();
         shootableMask = LayerMask.GetMask ("Shootable");
         gunParticles = GetComponent<ParticleSystem> ();
         gunLine = GetComponent <LineRenderer> ();
@@ -32,10 +34,17 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        if (_EnemyMovement.closeEnough)
         {
-            Shoot ();
+            
+            Debug.Log("NEPE");
+            if (timer >= timeBetweenBullets && Time.timeScale != 0 && GetAngle() < 5f)
+            {
+                Shoot();
+            }
         }
+
+        
 
         if(timer >= timeBetweenBullets * effectsDisplayTime)
         {
@@ -82,4 +91,16 @@ public class PlayerShooting : MonoBehaviour
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
         }
     }
+
+    private float GetAngle()
+    {
+        Vector3 directionBetween = _EnemyMovement.player.transform.position - this.transform.position;
+        directionBetween.y = 0;
+        Vector3 forwardGun = this.transform.position;
+        forwardGun.y = 0;
+        float angle = Vector3.Angle(directionBetween, forwardGun);
+        Debug.Log("ANGLE: " + angle);
+        return angle;
+    }
+
 }
